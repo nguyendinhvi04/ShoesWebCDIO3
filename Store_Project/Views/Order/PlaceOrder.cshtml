@@ -1,0 +1,40 @@
+﻿@model Store_Project.Models.OrderModel
+
+@{
+    ViewBag.Title = "Place Order";
+}
+
+<h1>Đặt Hàng</h1>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <h3>Chi Tiết Đơn Đặt Hàng</h3>
+        <p>Mã Đơn Hàng: @Model.OrderId</p>
+        <p>Ngày Đặt Hàng: @Model.OrderDate</p>
+        <p>tên Khách Hàng: @Model.CustomerName</p>
+    </div>
+    <hr />
+    <h3>Danh Sách Sản Phẩm</h3>
+    <table>
+        <tr>
+            <th>Mã Sản Phẩm</th>
+            <th>tên Sản Phẩm</th>
+            <th>Mô Tả</th>
+            <th>Giá</th>
+            <th>Số Lượng</th>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                 
+                <td>@Html.TextBox("Products[" + product.Id + "].Quantity")</td>
+            </tr>
+        }
+    </table>
+    <input type="submit" value="Đặt Hàng" />
+}

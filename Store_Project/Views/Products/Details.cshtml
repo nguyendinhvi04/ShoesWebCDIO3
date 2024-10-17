@@ -1,0 +1,104 @@
+﻿@model Store_Project.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+	.row{
+		display:flex;
+		width: 100%;
+		height: auto;
+		align-items:center;
+	}
+	.product-preview img{
+	width: 400px;
+	height: auto;
+	}
+	.product-name{
+		font-size: 30px;
+	}
+	.product-old-price{
+		margin-left:10px;
+	}
+
+	.product-details{
+		margin-left: 50px;
+		position:relative;
+		top:-400px;
+	}
+</style>
+<div class="row">
+	<!-- Product thumb imgs -->
+		<div id="product-imgs">
+			<div class="product-preview">
+				<img src=@Model?.ImageUrl alt="">
+			</div>			
+		</div>
+	<!-- /Product thumb imgs -->
+	<!-- Product details -->
+		<div class="product-details">
+			<h2 class="product-name">@Model?.Name </h2>
+			<div>
+				<div class="product-rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+				</div>
+
+			</div>
+			<div>
+				<h3 class="product-price">@Model?.Price<del class="product-old-price">Đang Giảm</del></h3>
+			</div>
+			<p> 
+				@Model?.Description
+			</p>
+
+			<div class="product-options">
+				<label>
+					Kích Cỡ
+					<select class="input-select">
+						<option value="0">S</option>
+						<option value="0">M</option>
+						<option value="0">L</option>
+						<option value="0">XL</option>
+					</select>
+				</label>
+				<label>
+					Màu
+					<select class="input-select">
+
+						<option value="0">Trắng</option>
+						<option value="0">Hồng</option>
+						<option value="0">Đen Xanh</option>
+					</select>
+				</label>
+			</div>
+
+			<div class="add-to-cart">
+				<div class="qty-label">
+					Số Lượng
+					<div class="input-number">
+						<input type="number">
+						<span class="qty-up">+</span>
+						<span class="qty-down">-</span>
+					</div>
+				</div>
+				<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+			</div>
+
+			<ul class="product-btns">
+				<li><a href="#"><i class="fa fa-heart-o"></i>yêu thích</a></li>
+
+			</ul>
+			<ul class="product-links">
+				<li>Chia Sẻ: </li>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+			</ul>
+
+		</div>
+</div>

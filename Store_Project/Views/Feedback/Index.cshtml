@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    h2{
+        color: #D10024;
+    }
+    label{
+        font-size:15px;
+    }
+    @Html.TextBox {
+        width:100px;
+    }
+    @Html.DropDownList{
+        width:100px;
+        height:100px;
+    }
+    input{
+        width:30px;
+        height:15px;
+        boder: 1px solid #fff;
+    }
+</style>
+<h2>Phản hồi của Khách hàng</h2>
+
+@using (Html.BeginForm("SubmitFeedback", "Feedback", FormMethod.Post))
+{
+    <div>
+        <label>Tên:</label>
+        @Html.TextBox("Name")
+    </div>
+    <br />
+    <div>
+        <label>Email:</label>
+        @Html.TextBox("Email")
+    </div>
+    <br />
+    <div>
+        <label>Phản hồi:</label>
+        @Html.TextArea("Message")
+    </div>
+    <br />
+    <input type="submit" value="Gửi Phản hồi" />
+}

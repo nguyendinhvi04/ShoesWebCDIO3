@@ -1,0 +1,107 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Store_Project.Models.Category>
+<div id="header">
+	<!-- container -->  
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- LOGO -->
+			<div class="col-md-3">
+				<div class="header-logo">
+					<a href="#" class="logo">
+						<img class="img-logo" src="/img/logo01.png" alt="">
+					</a>
+				</div>
+			</div>
+			<!-- /LOGO -->
+			<!-- SEARCH BAR -->
+			<div class="col-md-6">
+				<div class="header-search">
+					<form asp-controller="Products" asp-action="Index">
+						<select name="catid"class="input-select">
+							<option value="0">Top Tìm Kiếm</option>
+							@foreach(var item in Model){
+							<option value="@item.Id">@item.Name</option>
+							}
+						</select>
+						<input class="input" name="keywords" placeholder="Nhập từ khóa tại đây">
+						<button class="search-btn">Tìm</button>
+					</form>
+				</div>
+			</div>
+			<!-- /SEARCH BAR -->
+			<!-- ACCOUNT -->
+			<div class="col-md-3 clearfix">
+				<div class="header-ctn">
+					<!-- Wishlist -->
+					<div>
+						<a href="#">
+							<i class="fa fa-heart-o"></i>
+							<span>Yêu Thích</span>
+							<div class="qty">2</div>
+						</a>
+					</div>
+					<!-- /Wishlist -->
+					<!-- Cart -->
+					<div class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+							<i class="fa fa-shopping-cart"></i>
+							<span>Giỏ Hàng</span>
+							<div class="qty">3</div>
+						</a>
+						<div class="cart-dropdown">
+							<div class="cart-list">
+								<div class="product-widget">
+									<div class="product-img">
+										<img src="./img/real01.jpg" alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-name"><a href="#">Full Set Realmadrid 2024</a></h3>
+										<h4 class="product-price"><span class="qty">1x</span>150.000</h4>
+									</div>
+									<button class="delete"><i class="fa fa-close"></i></button>
+								</div>
+
+								<div class="product-widget">
+									<div class="product-img">
+										<img src="./img/mc01.jpg" alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-name"><a href="#">Full Bộ Mancity 2025</a></h3>
+										<h4 class="product-price"><span class="qty">2x</span>340.000</h4>
+									</div>
+									<button class="delete"><i class="fa fa-close"></i></button>
+								</div>
+							</div>
+							<div class="cart-summary">
+								<small>3 sản phẩm đã chọn</small>
+								<h5>490.000</h5>
+							</div>
+							<div class="cart-btns">
+								<a href="#">Xem Chi Tiết</a>
+								<a href="#">Thanh Toán  <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /Cart -->
+					<!-- Menu Toogle -->
+					<div class="menu-toggle">
+						<a href="#">
+							<i class="fa fa-bars"></i>
+							<span>Menu</span>
+						</a>
+					</div>
+					<!-- /Menu Toogle -->
+				</div>
+			</div>
+			<!-- /ACCOUNT -->
+		</div>
+		<!-- row -->
+	</div>
+	<!-- container -->
+</div>

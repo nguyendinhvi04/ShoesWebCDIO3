@@ -1,0 +1,23 @@
+﻿@model Store_Project.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Chi Tiết Danh Mục</h1>
+<hr />
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <h5>xem chi tiết về loại này</h5>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Chỉnh Sửa</a> |
+    <a asp-action="Index">Quay Lại Danh Sách</a>
+</div>

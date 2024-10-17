@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Store_Project.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    h1 {
+        color: #D10024;
+    }
+    .btn-pri:hover{
+      color: #D10024;
+  
+    }
+</style>
+<h1>Quản Lí Danh Mục Sản Phẩm</h1>
+<hr />
+<p>
+    <button class="btn-pri"><a asp-action="Create">Tạo Mới Loại </a></button>
+    <p></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi Tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

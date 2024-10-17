@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Store_Project.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    h1 {
+        color: #D10024;
+    }
+
+    btn-default {
+        background-color: #D10024;
+        color: white;
+    }
+</style>
+<h1>Quản Lí Tài Khoản</h1>
+
+<p>
+    <button class="btn-default"> <a asp-action="Create">Thêm Tài Khoản</a></button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h3>Tên Tài Khỏan</h3>
+            </th>
+            <th>
+                <h3>Email </h3>
+            </th>
+            <th>
+                <h3>Mật Khẩu </h3>
+            </th>
+            <th>
+                <h3>Vai Trò</h3>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi Tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

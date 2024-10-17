@@ -1,0 +1,120 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Da Nang Sport</title>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="/css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="/css/slick-theme.css" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="/css/nouislider.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<!-- HEADER -->
+	<header>
+		<!-- TOP HEADER -->
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-left">
+					<li><a href="#"><i class="fa fa-phone"></i>0826813045</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"></i> sportdanang@email.com</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i> Da Nang, Viet Nam</a></li>
+				</ul>
+				<ul class="header-links pull-right">
+					@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+					{
+						<li><a href="/Admin/Index"><i class="fa fa-user-o">Quản Lí Cho Admin</i></a></li>
+					}
+					<li><a href="/Users/Login"><i class="fa fa-user-o"></i>Đăng Nhập-Đăng Kí</a></li>
+					<li><a href="/Users/Logout"><i class="fa fa-user-o"></i>Thoát</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /TOP HEADER -->
+		<!-- MAIN HEADER -->
+		@await Component.InvokeAsync("Search");
+		<!-- /MAIN HEADER -->
+	</header>
+	<!-- /HEADER -->
+	<!-- NAVIGATION -->
+	@await Component.InvokeAsync("Navbar");
+	<!-- /NAVIGATION -->
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- ASIDE -->
+				<div id="aside" class="col-md-3">
+					<!--Hien thi-->
+					@await Component.InvokeAsync("Sidebar")
+							
+				</div>
+				<!-- /ASIDE -->
+
+				<!-- STORE -->
+				<div id="store" class="col-md-9">
+					<!-- store top filter -->
+					<div class="store-filter clearfix">
+						<div class="store-sort">
+							<label>
+								Sort By:
+								<select class="input-select">
+									<option value="0">Thông Dụng</option>
+									<option value="1">Phổ Biến</option>
+									<option value="1">Mới Về</option>
+								</select>
+							</label>
+						</div>
+						<ul class="store-grid">
+							<li class="active"><i class="fa fa-th"></i></li>
+							<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+						</ul>
+					</div>
+					<!-- /store top filter -->
+					@RenderBody()
+					<!--san pham chinh -->
+				</div>
+				<!-- /STORE -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+	<!-- FOOTER -->
+	<!-- /FOOTER -->
+	<!-- jQuery Plugins -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/slick.min.js"></script>
+	<script src="/js/nouislider.min.js"></script>
+	<script src="/js/jquery.zoom.min.js"></script>
+	<script src="/js/main.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

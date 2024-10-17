@@ -1,0 +1,54 @@
+﻿@model Store_Project.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    h1 {
+        color: #D10024;
+    }
+
+    btn-default {
+        background-color: #D10024;
+        color: white;
+    }
+</style>
+<h1>Xóa Tài Khoản Người Dùng</h1>
+
+<h3>Bạn Chắc Chắn Muốn Xóa Tài Khỏan Bên Dưới?</h3>
+<div>
+    <h4>Tài Khoản</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-action="Index" color="#D10024">Trở Vê Trang Chủ</a>
+    </form>
+</div>

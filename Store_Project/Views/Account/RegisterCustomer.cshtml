@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Store_Project.ViewModels.RegisterCustomerViewModel;
+
+@{
+    ViewData["Title"] = "Register Customer";
+}
+<style>
+    h1 {
+        color: #D10024;
+    }
+
+    btn-primary {
+        background-color: #D10024;
+        color: white;
+    }
+</style>
+<h1>Đăng Kí Tài Khoản</h1>
+<form asp-action="RegisterCustomer" method="post">
+    <div class="form-group">
+        <label >Tên Đăng Nhập</label>
+        <input asp-for="NameUser" class="form-control" />
+        <span asp-validation-for="NameUser" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Mật Khẩu</label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Họ Tên</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Ngày Sinh</label>
+        <input asp-for="Birthday" class="form-control" type="date" />
+        <span asp-validation-for="Birthday" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Địa Chỉ</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Số Điện Thoại</label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng Kí</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

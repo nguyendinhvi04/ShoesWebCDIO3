@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    .btn-primary{
+        background-color: #D10024;
+        color:white;
+        text-align: center;
+        border:none;
+    }
+
+    .form-control{
+        height: 40px;
+        width: 400px;
+
+    }
+    .btn-create-account{
+        margin-left: 15px;
+        font-size: 15px;
+        color: #D10024;
+    }
+
+    .label-login{
+        font-size: 25px;
+    }
+
+    .alert alert-danger{
+        height: 40px;
+        width: 400px;
+    }
+    h2{
+        color:#D10024;
+    }
+</style>
+<form asp-action="Login" asp-controller="Users">
+    <h2>Đăng Nhập</h2>
+    <div class="form-group">
+        <label for="exampleInputEmail1"class="label-login" >Tài Khoản</label>
+        <input type="email" class="form-control" name="email" placeholder="......">
+        <small id="emailHelp" class="form-text text-muted">Email này chỉ dành riêng cho mỗi một người dùng</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1" class="label-login">Mật Khẩu</label>
+        <input type="password" class="form-control" placeholder="bao gồm 8 kí tự" name="password">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Quên Mật Khẩu</label>
+        <label class="form-check-label" for="exampleCheck1"><a asp-controller="Account" asp-action="RegisterCustomer" class="btn-create-account">Tạo tài khoản mới</a></label>
+    </div>
+    <button type="submit" class="btn btn-primary" >Đăng Nhập</button>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+</form>

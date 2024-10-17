@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Report";
+}
+
+<style>
+    h2{
+        color: #D10024;
+    }
+    label{
+        font-size:15px;
+    }
+    @Html.TextBox {
+        width:100px;
+    }
+    @Html.DropDownList{
+        width:100px;
+        height:100px;
+    }
+     input{
+        width:30px;
+        height:15px;
+        boder: 1px solid #fff;
+    }
+</style>
+<h2>Thống kê và Báo cáo</h2>
+
+@using (Html.BeginForm("GenerateReport", "Report", FormMethod.Post))
+{
+    <div>
+        <label>Hiệu suất:</label>
+        @Html.TextBox("Performance")
+    </div>
+    <br />
+    <div>
+        <label>Phản hồi của khách hàng:</label>
+        @Html.DropDownList("CustomerFeedback", new SelectList(new[] { "Tốt", "Khá hài lòng", "Chưa hài lòng" }))
+    </div>
+    <br />
+    <div>
+        <label>Doanh thu:</label>
+        @Html.TextBox("Revenue")
+    </div>
+    <br />
+    <div>
+        <label>Chi phí:</label>
+        @Html.TextBox("Expenses")
+    </div>
+    <input type="submit" value="Xem báo cáo" />
+}
